@@ -1,0 +1,11 @@
+name: self-scan
+
+on:
+  push:
+  pull_request:
+
+# Dogfood the reusable workflow: a change to the scanner implementation is itself scanned by it
+# on the next push, so a broken pin or version is caught here before consumers pick it up via @v1.
+jobs:
+  secret-scan:
+    uses: ./.github/workflows/secret-scan.yml

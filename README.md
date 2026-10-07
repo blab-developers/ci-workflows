@@ -28,3 +28,6 @@ jobs:
 - `@v1` is the moving major tag; patch/minor releases move it within the major.
 - Major releases (`v2`) may change inputs, permissions or behavior — consumers pin `@v1` and adopt deliberately.
 - The third-party action is pinned by full commit SHA in this repository only.
+
+`self-scan.yml` in this repository calls the reusable workflow with a local `uses:` on every
+push, so a scanner change here is scanned by itself before consumers move to it.
